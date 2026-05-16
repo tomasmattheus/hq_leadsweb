@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+:root {
+  --brand-cream: #F0EBE0;
+  --brand-off-white: #F8F4EB;
+  --brand-black-ink: #0A0A0A;
+  --brand-mid-gray: #6B6B6B;
+  --brand-light-gray: #C8C2B5;
+  --brand-indigo: #5B5BD6;
+  --brand-acid-yellow: #F5E663;
+  --brand-blood-red: #C12B2B;
+  --brand-hot-pink: #FF3B6E;
+  --brand-safety-orange: #E55A1A;
+}
+
+@theme inline {
+  --color-cream: var(--brand-cream);
+  --color-off-white: var(--brand-off-white);
+  --color-ink: var(--brand-black-ink);
+  --color-mid-gray: var(--brand-mid-gray);
+  --color-light-gray: var(--brand-light-gray);
+  --color-indigo: var(--brand-indigo);
+  --color-acid: var(--brand-acid-yellow);
+  --color-blood: var(--brand-blood-red);
+  --color-hot-pink: var(--brand-hot-pink);
+  --color-safety: var(--brand-safety-orange);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-serif: var(--font-serif);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: var(--brand-cream);
+  color: var(--brand-black-ink);
+  font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Newsprint grain texture */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.45;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.04 0 0 0 0 0.04 0 0 0 0 0.04 0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 220px 220px;
+}
+
+main,
+nav,
+header,
+footer,
+section {
+  position: relative;
+  z-index: 2;
+}
+
+::selection {
+  background: var(--brand-indigo);
+  color: var(--brand-off-white);
+}
+
+/* Crop marks utility */
+.crop-marks {
+  position: relative;
+}
+
+.crop-marks::before,
+.crop-marks::after,
+.crop-marks > .crop-bl,
+.crop-marks > .crop-br {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-color: var(--brand-light-gray);
+  border-style: solid;
+  border-width: 0;
+  pointer-events: none;
+}
+
+.crop-marks::before {
+  top: 16px;
+  left: 16px;
+  border-top-width: 1px;
+  border-left-width: 1px;
+}
+
+.crop-marks::after {
+  top: 16px;
+  right: 16px;
+  border-top-width: 1px;
+  border-right-width: 1px;
+}
+
+/* Highlighter (acid yellow stroke under inline text) */
+.highlighter {
+  background-image: linear-gradient(
+    transparent 60%,
+    var(--brand-acid-yellow) 60%,
+    var(--brand-acid-yellow) 92%,
+    transparent 92%
+  );
+  padding: 0 0.1em;
+  background-position: 0 0.05em;
+}
+
+/* Serif italic accent (one-word punchline) */
+.serif-italic {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* Headline tightening defaults */
+.display {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.mono {
+  font-family: var(--font-mono), monospace;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* Pill button (CTA) */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 9999px;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  transition: transform 120ms ease, background 120ms ease;
+}
+
+.pill:hover {
+  transform: translateY(-1px);
+}
+
+.pill-black {
+  background: var(--brand-black-ink);
+  color: var(--brand-off-white);
+}
+
+.pill-indigo {
+  background: var(--brand-indigo);
+  color: var(--brand-off-white);
+}
+
+.pill-outline {
+  background: transparent;
+  color: var(--brand-black-ink);
+  border: 1px solid var(--brand-black-ink);
+}
+
+/* Distressed sticker base */
+.sticker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.7rem;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1.5px solid var(--brand-black-ink);
+  box-shadow: 2px 2px 0 var(--brand-black-ink);
+  position: relative;
+}
+
+.sticker::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>");
+  mix-blend-mode: multiply;
+  opacity: 0.6;
+}
