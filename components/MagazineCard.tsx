@@ -38,8 +38,9 @@ export function MagazineCard({ issue, href, variant = "default", index = 0 }: Ma
       viewport={{ once: true, margin: "-10%" }}
       transition={{ duration: 0.5, delay: index * 0.06 }}
       className={cn(
-        "group relative isolate flex h-full min-h-[320px] flex-col overflow-hidden border border-ink/15 bg-off-white p-5 transition hover:border-ink",
-        variant === "preview" && "min-h-[360px]"
+        "group relative isolate flex h-full min-h-[340px] flex-col overflow-hidden border border-ink/15 bg-off-white p-5 transition hover:-translate-y-0.5 hover:border-ink hover:shadow-[0_12px_30px_-18px_rgba(10,10,10,0.45)]",
+        variant === "preview" && "min-h-[380px]",
+        issue.sticker && "pt-14"
       )}
     >
       <Link
@@ -70,7 +71,7 @@ export function MagazineCard({ issue, href, variant = "default", index = 0 }: Ma
       </footer>
 
       {issue.sticker && (
-        <div className="pointer-events-none absolute -right-2 top-12 z-20">
+        <div className="pointer-events-none absolute right-3 top-3 z-20">
           <Sticker text={issue.sticker.text} color={issue.sticker.color} rotation={issue.rotation ?? 4} size="sm" />
         </div>
       )}

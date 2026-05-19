@@ -40,7 +40,7 @@ export function SectionHeader({
         )}
       </div>
 
-      <h2 className="display text-[14vw] md:text-[7rem] lg:text-[8.5rem] leading-[0.9] text-ink break-words">
+      <h2 className="display leading-[0.95] text-ink break-words text-[clamp(2.25rem,6.5vw,5rem)]">
         {headline}
         {italicWord && (
           <>

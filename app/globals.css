@@ -195,6 +195,12 @@ section {
   position: relative;
 }
 
+/* Marquee ticker */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 .sticker::after {
   content: "";
   position: absolute;

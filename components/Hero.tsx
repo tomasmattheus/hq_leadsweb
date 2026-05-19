@@ -41,13 +41,13 @@ export function Hero({
         <span>{issueLabel}</span>
       </div>
 
-      <div className="relative z-10 mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-10 px-6 pb-20 pt-12 md:grid-cols-12 md:gap-6 md:px-12 md:pb-32 md:pt-20">
+      <div className="relative z-10 mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-10 px-6 pb-12 pt-10 md:grid-cols-12 md:gap-8 md:px-12 md:pb-16 md:pt-14">
         <div className="relative md:col-span-8">
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="display text-[14vw] leading-[0.9] md:text-[9.5vw] lg:text-[8.4rem] xl:text-[10rem]"
+            className="display leading-[0.92] text-[clamp(2.75rem,7.5vw,6.25rem)]"
           >
             {before}
             <span className="serif-italic font-normal normal-case">{italicWord}</span>
@@ -57,12 +57,12 @@ export function Hero({
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.25, duration: 0.6 }}
-            className="mt-10 max-w-xl"
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="mt-6 max-w-xl md:mt-8"
           >
             <p className="text-base leading-relaxed text-ink/80 md:text-lg">{subtitle}</p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="mt-6 flex flex-wrap items-center gap-3 md:mt-8">
               <Link href={ctaPrimary.href} className="pill pill-indigo px-6 py-3 text-xs">
                 {ctaPrimary.label} →
               </Link>
@@ -72,16 +72,36 @@ export function Hero({
             </div>
           </motion.div>
 
-          <div className="absolute -bottom-2 left-[50%] hidden md:block">
-            <MarkerAnnotation text="POSTA" arrow="left" rotation={-3} />
-          </div>
+          {/* Stats bar */}
+          <motion.dl
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.45, duration: 0.6 }}
+            className="mt-10 grid max-w-2xl grid-cols-3 gap-4 border-t border-ink/15 pt-6 md:mt-12 md:gap-8 md:pt-8"
+          >
+            <Stat n="+30" label="PYMES OPERANDO" />
+            <Stat n="4.2×" label="ROAS PROMEDIO" />
+            <Stat n="$2.8M" label="GESTIONADOS / MES" />
+          </motion.dl>
         </div>
 
         {/* Right: chess piece halftone + stickers */}
         <div className="relative md:col-span-4">
-          <div aria-hidden className="relative mx-auto aspect-[3/4] w-full max-w-[360px] md:max-w-none">
-            <ChessHalftone />
-          </div>
+          <motion.div
+            aria-hidden
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="relative mx-auto aspect-[3/4] w-full max-w-[300px] md:max-w-none"
+          >
+            <motion.div
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="h-full w-full"
+            >
+              <ChessHalftone />
+            </motion.div>
+          </motion.div>
 
           <div className="absolute -top-2 right-2 md:right-6">
             <Sticker text="VOL.01 / DROP 01" color="yellow" rotation={-6} size="sm" />
@@ -89,18 +109,47 @@ export function Hero({
           <div className="absolute bottom-6 -left-2 md:bottom-10 md:-left-6">
             <Sticker text="SIN CHAMUYOS" color="red" rotation={5} size="md" />
           </div>
+          <div className="absolute bottom-2 right-4 hidden md:block">
+            <MarkerAnnotation text="AJEDREZ, NO RULETA" arrow="up" rotation={-3} />
+          </div>
         </div>
       </div>
 
-      {/* Scroll cue */}
-      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] items-end justify-between border-t border-ink/15 px-6 py-6 mono text-[11px] text-ink/70 md:px-12">
-        <a href="#magazine-preview" className="inline-flex items-center gap-2 transition hover:text-ink">
-          ↓ SCROLL TO MAGAZINE
-        </a>
-        <span className="hidden md:inline">SISTEMAS QUE VENDEN MIENTRAS DORMÍS.</span>
-        <span>HQ.LEADS · 2026</span>
+      {/* Marquee ticker */}
+      <div className="relative z-10 overflow-hidden border-y border-ink/15 bg-ink text-cream">
+        <div className="flex animate-[marquee_38s_linear_infinite] whitespace-nowrap py-3 mono text-[11px] tracking-widest">
+          {Array.from({ length: 2 }).map((_, i) => (
+            <span key={i} className="flex shrink-0 items-center gap-6 px-6">
+              <span>● SISTEMAS QUE VENDEN MIENTRAS DORMÍS</span>
+              <span>·</span>
+              <span>META ADS</span>
+              <span>·</span>
+              <span>GOOGLE ADS</span>
+              <span>·</span>
+              <span>AUTOMATIZACIÓN IA</span>
+              <span>·</span>
+              <span>LANDING PAGES</span>
+              <span>·</span>
+              <span>CONTENIDO</span>
+              <span>·</span>
+              <span>NEWSLETTER SEMANAL</span>
+              <span>·</span>
+              <span>ROSARIO · ARG</span>
+              <span>·</span>
+            </span>
+          ))}
+        </div>
       </div>
     </section>
+  );
+}
+
+function Stat({ n, label }: { n: string; label: string }) {
+  return (
+    <div className="flex flex-col">
+      <span className="display text-[clamp(1.5rem,3vw,2.25rem)] leading-none text-ink">{n}</span>
+      <span className="mt-2 mono text-[10px] tracking-widest text-ink/60">{label}</span>
+    </div>
   );
 }
 
