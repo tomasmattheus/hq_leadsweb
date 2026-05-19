@@ -95,7 +95,7 @@ export function DataMagazineSection({
             return (
               <li key={issue.id}>
                 <Link
-                  href={`${basePath}/${issue.slug}`}
+                  href={basePath}
                   className="group flex items-start gap-3 py-4 transition hover:bg-off-white"
                 >
                   <span className="mono text-[11px] text-ink/60">{issue.number}</span>

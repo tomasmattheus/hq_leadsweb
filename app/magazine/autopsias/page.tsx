@@ -27,7 +27,6 @@ const CASOS: Caso[] = [
     inversion: "$1.800.000",
     causa: "Pauta sin tracking. 9 meses con freelance sin reporte.",
     estado: "EN AUTOPSIA",
-    href: "/magazine/autopsias/autopsia-2m-quemados-meta",
   },
   {
     caso: "Marca de muebles premium",
@@ -133,10 +132,10 @@ export default function AutopsiasPage() {
                     ISSUE {ultima.number} · {ultima.date}
                   </div>
                   <Link
-                    href={`/magazine/autopsias/${ultima.slug}`}
+                    href="/agenda"
                     className="mt-6 inline-flex items-center gap-2 mono text-[11px] text-cream underline-offset-4 hover:underline"
                   >
-                    LEER LA AUTOPSIA →
+                    PEDÍ LA AUTOPSIA COMPLETA →
                   </Link>
                 </>
               ) : (

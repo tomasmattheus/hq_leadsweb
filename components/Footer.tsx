@@ -39,16 +39,33 @@ export function Footer() {
                 {col.title}
               </h3>
               <ul className="space-y-2">
-                {col.links.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-ink hover:text-indigo transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
+                {col.links.map((link) => {
+                  const isExternal =
+                    link.href.startsWith("http") ||
+                    link.href.startsWith("mailto:") ||
+                    link.href.startsWith("tel:");
+                  return (
+                    <li key={link.href}>
+                      {isExternal ? (
+                        <a
+                          href={link.href}
+                          className="text-sm text-ink hover:text-indigo transition-colors"
+                          target={link.href.startsWith("http") ? "_blank" : undefined}
+                          rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                        >
+                          {link.label}
+                        </a>
+                      ) : (
+                        <Link
+                          href={link.href}
+                          className="text-sm text-ink hover:text-indigo transition-colors"
+                        >
+                          {link.label}
+                        </Link>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
@@ -60,9 +77,6 @@ export function Footer() {
           </p>
           <div className="flex items-center gap-6 mono text-[10px] text-mid-gray uppercase tracking-widest">
             <span>HQ.LEADS · VOL.01 · {year}</span>
-            <Link href="/legal" className="hover:text-ink">
-              LEGAL
-            </Link>
           </div>
         </div>
       </div>

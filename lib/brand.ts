@@ -71,9 +71,9 @@ export const footerColumns = [
     title: "DROPS",
     links: [
       { href: "/drops", label: "Todos los drops" },
-      { href: "/drops/calculadora-roas", label: "Calculadora ROAS" },
-      { href: "/drops/checklist-auditoria", label: "Checklist Meta Ads" },
-      { href: "/drops/buyer-persona", label: "Buyer Persona" },
+      { href: "/drops#calculadora-roas", label: "Calculadora ROAS" },
+      { href: "/drops#checklist-auditoria", label: "Checklist Meta Ads" },
+      { href: "/drops#buyer-persona", label: "Buyer Persona" },
     ],
   },
   {

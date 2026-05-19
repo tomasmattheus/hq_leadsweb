@@ -13,8 +13,22 @@ export type MagazineCardProps = {
   index?: number;
 };
 
+// Secciones que tienen ruta /magazine/<slug> propia
+const SECTION_ROUTES = new Set([
+  "autopsias",
+  "hot-take",
+  "manual-de-campo",
+  "mentalidad",
+  "motor-de-ads",
+  "news-brief",
+]);
+
 export function MagazineCard({ issue, href, variant = "default", index = 0 }: MagazineCardProps) {
-  const url = href ?? `/magazine/${issue.sectionSlug}/${issue.slug}`;
+  // Issues individuales aún no tienen ruta propia. Linkear a la sección padre (o al archivo) para evitar 404.
+  const fallback = SECTION_ROUTES.has(issue.sectionSlug)
+    ? `/magazine/${issue.sectionSlug}`
+    : "/magazine";
+  const url = href ?? fallback;
   const [before, after] = issue.headline.split(issue.italicWord);
 
   return (

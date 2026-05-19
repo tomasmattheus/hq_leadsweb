@@ -36,11 +36,10 @@ export default function NewsBriefPage() {
           <ol className="mt-12 divide-y divide-ink/15 border-y border-ink/15">
             {sectionIssues.map((issue, i) => {
               const [before, after] = issue.headline.split(issue.italicWord);
-              const slug = `/magazine/news-brief/${issue.slug}`;
               return (
                 <li key={issue.id}>
                   <Link
-                    href={slug}
+                    href="/agenda"
                     className="group grid grid-cols-12 items-start gap-4 py-7 transition hover:bg-off-white md:items-center md:py-9"
                   >
                     <div className="col-span-3 md:col-span-2">

@@ -89,10 +89,10 @@ function HotTakeColumn({ issue, index }: { issue: Issue; index: number }) {
 
         <div className="mt-6">
           <Link
-            href={`/magazine/hot-take/${issue.slug}`}
+            href="/agenda"
             className="inline-flex items-center gap-2 mono text-[11px] text-ink underline-offset-4 transition hover:underline"
           >
-            LEER LA COLUMNA COMPLETA →
+            CONTAME MÁS →
           </Link>
         </div>
       </div>

@@ -74,7 +74,7 @@ export default function ManualDeCampoPage() {
                   italicWord={issue.italicWord}
                   subtitle={extra.subtitle}
                   stepCount={extra.steps}
-                  href={`/magazine/manual-de-campo/${issue.slug}`}
+                  href="/agenda"
                   index={i}
                 />
               );
