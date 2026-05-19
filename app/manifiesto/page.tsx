@@ -27,7 +27,7 @@ export default function ManifiestoPage() {
         <div className="absolute top-32 right-6 md:right-12 hidden md:block">
           <Sticker
             color="red"
-            text="PARENTAL ADVISORY · EXPLICIT CONTENT"
+            text="DOSSIER TÉCNICO · LECTURA INTERNA"
             rotation={-7}
             size="sm"
           />

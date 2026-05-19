@@ -3,7 +3,7 @@ export type MagazineSection =
   | "MENTALIDAD"
   | "NEWS BRIEF"
   | "MOTOR DE ADS"
-  | "AUTOPSIA"
+  | "DIAGNÓSTICO"
   | "MANUAL DE CAMPO"
   | "DROP"
   | "HOT TAKE";
@@ -17,7 +17,7 @@ export type Issue = {
     | "mentalidad"
     | "news-brief"
     | "motor-de-ads"
-    | "autopsias"
+    | "diagnosticos"
     | "manual-de-campo"
     | "drops"
     | "hot-take";
@@ -181,14 +181,14 @@ export const issues: Issue[] = [
   {
     id: "012",
     number: "012",
-    section: "AUTOPSIA",
-    sectionSlug: "autopsias",
-    headline: "AUTOPSIA: $2M QUEMADOS en meta.",
+    section: "DIAGNÓSTICO",
+    sectionSlug: "diagnosticos",
+    headline: "DIAGNÓSTICO: $2M QUEMADOS en meta.",
     italicWord: "en meta",
-    slug: "autopsia-2m-quemados-meta",
+    slug: "diagnostico-2m-quemados-meta",
     date: "24 / 05 / 2026",
     weekday: "VIE",
-    sticker: { text: "PARENTAL ADVISORY", color: "red" },
+    sticker: { text: "DOSSIER TÉCNICO", color: "red" },
     rotation: 5,
     hasReel: true,
   },
@@ -274,11 +274,11 @@ export const sectionMeta: Record<
     description: "Métricas, fórmulas y benchmarks reales.",
     mantra: "DATOS ANTES QUE ADJETIVOS.",
   },
-  AUTOPSIA: {
-    slug: "autopsias",
-    title: "Autopsias",
-    description: "Casos donde se quemó plata. Por qué pasó.",
-    mantra: "APRENDÉ DEL MUERTO ANTES DE SER UNO.",
+  "DIAGNÓSTICO": {
+    slug: "diagnosticos",
+    title: "Diagnósticos",
+    description: "Casos reales de pauta analizados con criterio técnico. Qué falló, por qué, cómo se corrige.",
+    mantra: "EL SISTEMA QUE NO VES ES EL QUE TE GANA.",
   },
   "MANUAL DE CAMPO": {
     slug: "manual-de-campo",

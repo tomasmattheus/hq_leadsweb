@@ -37,7 +37,7 @@ export const taxonomiaSecciones = [
   { slug: "magazine", label: "MAGAZINE", desc: "Editorial: news brief, hot takes, cultura." },
   { slug: "motor-de-ads", label: "MOTOR DE ADS", desc: "Educativo paid media: ROAS, CPL, CTR, presupuestos." },
   { slug: "manual-de-campo", label: "MANUAL DE CAMPO", desc: "Metodología paso a paso." },
-  { slug: "autopsias", label: "AUTOPSIAS", desc: "Casos reales que fallaron y por qué." },
+  { slug: "diagnosticos", label: "DIAGNÓSTICOS", desc: "Casos reales analizados con criterio técnico." },
   { slug: "drops", label: "DROP", desc: "Lead magnets y herramientas gratis." },
 ] as const;
 
@@ -45,7 +45,7 @@ export const navLinks = [
   { href: "/magazine", label: "MAGAZINE" },
   { href: "/magazine/motor-de-ads", label: "MOTOR DE ADS" },
   { href: "/magazine/manual-de-campo", label: "MANUAL DE CAMPO" },
-  { href: "/magazine/autopsias", label: "AUTOPSIAS" },
+  { href: "/magazine/diagnosticos", label: "DIAGNÓSTICOS" },
   { href: "/drops", label: "DROP" },
 ] as const;
 
@@ -56,7 +56,7 @@ export const footerColumns = [
       { href: "/magazine", label: "Magazine" },
       { href: "/magazine/motor-de-ads", label: "Motor de Ads" },
       { href: "/magazine/manual-de-campo", label: "Manual de Campo" },
-      { href: "/magazine/autopsias", label: "Autopsias" },
+      { href: "/magazine/diagnosticos", label: "Diagnósticos" },
     ],
   },
   {

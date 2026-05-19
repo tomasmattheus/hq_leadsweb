@@ -6,9 +6,9 @@ import { CropMarks } from "@/components/CropMarks";
 import { getIssuesBySection, sectionMeta } from "@/lib/content/issues";
 
 export const metadata: Metadata = {
-  title: "Autopsias — casos donde se quemó plata",
+  title: "Diagnósticos — casos analizados con criterio técnico",
   description:
-    "Sección Autopsias de la revista hq.leads. Casos reales de pauta y growth que fallaron y por qué.",
+    "Sección Diagnósticos de la revista hq.leads. Casos reales de pauta y growth: qué falló, por qué, cómo se corrige.",
 };
 
 type Caso = {
@@ -16,7 +16,7 @@ type Caso = {
   industria: string;
   inversion: string;
   causa: string;
-  estado: "ARCHIVADO" | "EN AUTOPSIA" | "RESUCITADO";
+  estado: "ARCHIVADO" | "EN DIAGNÓSTICO" | "OPERANDO";
   href?: string;
 };
 
@@ -26,7 +26,7 @@ const CASOS: Caso[] = [
     industria: "RETAIL",
     inversion: "$1.800.000",
     causa: "Pauta sin tracking. 9 meses con freelance sin reporte.",
-    estado: "EN AUTOPSIA",
+    estado: "EN DIAGNÓSTICO",
   },
   {
     caso: "Marca de muebles premium",
@@ -47,7 +47,7 @@ const CASOS: Caso[] = [
     industria: "RETAIL",
     inversion: "$320.000",
     causa: "Catálogo desincronizado con feed. Pixel mal seteado.",
-    estado: "RESUCITADO",
+    estado: "OPERANDO",
   },
   {
     caso: "Estudio jurídico",
@@ -58,49 +58,45 @@ const CASOS: Caso[] = [
   },
 ];
 
-export default function AutopsiasPage() {
-  const sectionIssues = getIssuesBySection("AUTOPSIA");
-  const meta = sectionMeta.AUTOPSIA;
+export default function DiagnosticosPage() {
+  const sectionIssues = getIssuesBySection("DIAGNÓSTICO");
+  const meta = sectionMeta["DIAGNÓSTICO"];
   const ultima = sectionIssues[sectionIssues.length - 1];
 
   return (
     <section className="relative isolate overflow-hidden bg-[#0A0A0A] pb-24 pt-16 text-cream md:pt-24">
       <CropMarks color="cream" margin={24} />
 
-      {/* Red ink stains */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-32 top-32 h-[480px] w-[480px] rounded-full bg-blood/40 blur-3xl"
+        className="pointer-events-none absolute -left-32 top-32 h-[480px] w-[480px] rounded-full bg-indigo/30 blur-3xl"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute right-10 top-12 h-40 w-40 rotate-12 rounded-full bg-blood/60 blur-2xl"
+        className="pointer-events-none absolute right-10 top-12 h-40 w-40 rotate-12 rounded-full bg-blood/40 blur-2xl"
       />
 
-      {/* Parental advisory rotated in margin */}
       <div className="pointer-events-none absolute -left-10 top-1/2 hidden -translate-y-1/2 -rotate-90 md:block">
         <span className="mono text-xs uppercase tracking-[0.4em] text-cream/50">
-          PARENTAL ADVISORY · EXPLICIT CONTENT
+          DOSSIER TÉCNICO · LECTURA OPERATIVA
         </span>
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 md:px-12">
-        {/* Header */}
         <header className="flex flex-wrap items-end justify-between gap-6 border-b border-cream/15 pb-10">
           <div>
-            <div className="mono text-[11px] text-cream/60">SECCIÓN 04 · AUTOPSIAS</div>
+            <div className="mono text-[11px] text-cream/60">SECCIÓN 04 · DIAGNÓSTICOS</div>
             <h1 className="mt-3 display leading-[0.92] text-cream text-[clamp(2.5rem,7vw,5.5rem)]">
-              AUTOPSIAS.
+              DIAGNÓSTICOS.
             </h1>
             <p className="mt-4 max-w-xl text-cream/80">
-              Casos reales donde se quemó plata. Industria, inversión, causa, estado. {meta.description}
+              Casos reales analizados con criterio técnico. Industria, inversión, diagnóstico, estado. {meta.description}
             </p>
           </div>
-          <Sticker text="PARENTAL ADVISORY" color="red" rotation={-3} size="md" />
+          <Sticker text="DOSSIER TÉCNICO" color="red" rotation={-3} size="md" />
         </header>
 
         <div className="mt-12 grid grid-cols-12 gap-8">
-          {/* Forensic table */}
           <div className="col-span-12 md:col-span-8">
             <ExpedienteHeader dark />
             {CASOS.map((c, i) => (
@@ -112,15 +108,14 @@ export default function AutopsiasPage() {
                 href="/agenda"
                 className="pill px-6 py-3 bg-cream text-ink"
               >
-                Pedí una autopsia gratis →
+                Pedí un diagnóstico gratis →
               </Link>
             </div>
           </div>
 
-          {/* Right panel */}
           <aside className="col-span-12 md:col-span-4">
             <div className="border border-cream/20 bg-cream/5 p-6">
-              <div className="mono text-[10px] text-cream/60">ÚLTIMA AUTOPSIA AÑADIDA</div>
+              <div className="mono text-[10px] text-cream/60">ÚLTIMO DIAGNÓSTICO AÑADIDO</div>
               {ultima ? (
                 <>
                   <h2 className="mt-3 display text-2xl normal-case leading-tight text-cream md:text-3xl">
@@ -135,7 +130,7 @@ export default function AutopsiasPage() {
                     href="/agenda"
                     className="mt-6 inline-flex items-center gap-2 mono text-[11px] text-cream underline-offset-4 hover:underline"
                   >
-                    PEDÍ LA AUTOPSIA COMPLETA →
+                    PEDÍ EL DIAGNÓSTICO COMPLETO →
                   </Link>
                 </>
               ) : (
@@ -145,7 +140,7 @@ export default function AutopsiasPage() {
 
             <div className="mt-8 mono text-[10px] text-cream/50">
               <p>
-                Cada autopsia se publica con permiso del cliente o anonimizada. La inversión es real, los nombres no necesariamente.
+                Cada diagnóstico se publica con permiso del cliente o anonimizado. La inversión es real, los nombres no necesariamente.
               </p>
             </div>
           </aside>
@@ -153,7 +148,7 @@ export default function AutopsiasPage() {
 
         <div className="mt-16 flex flex-wrap items-end justify-between gap-4 border-t border-cream/15 pt-6 mono text-[10px] text-cream/50">
           <span>{meta.mantra}</span>
-          <span>HQ.LEADS / VOL.01 / AUTOPSIAS / {sectionIssues.length} ISSUES</span>
+          <span>HQ.LEADS / VOL.01 / DIAGNÓSTICOS / {sectionIssues.length} ISSUES</span>
         </div>
       </div>
     </section>

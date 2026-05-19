@@ -32,7 +32,7 @@ export default function HomePage() {
 
       <ArchivePreview previewIssues={previewIssues} />
       <ServicesPreview />
-      <ExpedientesPreview />
+      <ProyectosPreview />
       <DropsPreview />
 
       <Newsletter />
@@ -145,21 +145,21 @@ function ServicesPreview() {
   );
 }
 
-function ExpedientesPreview() {
+function ProyectosPreview() {
   const cases = [
     {
       caso: "QD · Construcción premium",
       industria: "DECORACIÓN",
-      inversion: "$0 quemados",
+      inversion: "$0 fugados",
       causa: "Sistema instalado fase 02. ROAS 6.4×.",
-      estado: "RESUCITADO" as const,
+      estado: "OPERANDO" as const,
     },
     {
       caso: "Cliente retail (anónimo)",
       industria: "RETAIL",
       inversion: "$1.8M",
       causa: "Pauta sin tracking. 9 meses con freelance.",
-      estado: "EN AUTOPSIA" as const,
+      estado: "EN DIAGNÓSTICO" as const,
     },
   ];
 
@@ -179,14 +179,14 @@ function ExpedientesPreview() {
           <div className="md:col-span-8">
             <div className="mono text-[11px] text-cream/60">SECCIÓN 04</div>
             <h2 className="mt-3 display leading-[0.92] text-cream text-[clamp(2.5rem,7vw,5.5rem)]">
-              EXPEDIENTES.
+              PROYECTOS.
             </h2>
             <p className="mt-4 max-w-xl text-cream/80">
-              Casos donde se quemó plata. Industria, inversión, causa, estado. Aprendé del muerto antes de ser uno.
+              Casos reales analizados con criterio técnico. Industria, inversión, diagnóstico, estado. El sistema que no ves es el que te gana.
             </p>
           </div>
           <div className="md:col-span-4 md:text-right">
-            <Sticker text="PARENTAL ADVISORY" color="red" rotation={-3} size="md" />
+            <Sticker text="DOSSIER TÉCNICO" color="red" rotation={-3} size="md" />
           </div>
         </div>
 
@@ -202,18 +202,18 @@ function ExpedientesPreview() {
               estado={c.estado}
               dark
               index={i}
-              href="/magazine/autopsias"
+              href="/magazine/diagnosticos"
             />
           ))}
         </div>
 
         <div className="mt-12 flex flex-wrap items-center justify-between gap-4 mono text-[11px] text-cream/70">
-          <span>APRENDÉ DEL MUERTO ANTES DE SER UNO.</span>
+          <span>EL SISTEMA QUE NO VES ES EL QUE TE GANA.</span>
           <Link
-            href="/magazine/autopsias"
+            href="/magazine/diagnosticos"
             className="pill px-5 py-3 bg-cream text-ink"
           >
-            Ver expedientes →
+            Ver proyectos →
           </Link>
         </div>
       </div>

@@ -120,7 +120,7 @@ export default async function ServicePage({ params }: PageProps) {
                 {caso.resultado}
               </p>
               <span className="mono text-xs uppercase tracking-wider text-ink inline-flex items-center gap-2 border-b border-ink pb-1 group-hover:border-indigo group-hover:text-indigo transition-colors">
-                Leer autopsia
+                Ver diagnóstico
                 <ArrowRight className="w-3.5 h-3.5" strokeWidth={1.75} />
               </span>
             </Link>

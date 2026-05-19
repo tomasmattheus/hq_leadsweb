@@ -15,7 +15,7 @@ export type MagazineCardProps = {
 
 // Secciones que tienen ruta /magazine/<slug> propia
 const SECTION_ROUTES = new Set([
-  "autopsias",
+  "diagnosticos",
   "hot-take",
   "manual-de-campo",
   "mentalidad",

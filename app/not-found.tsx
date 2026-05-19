@@ -33,7 +33,7 @@ export default function NotFound() {
       </div>
 
       <div className="mt-16 flex items-center justify-between">
-        <Sticker color="red" text="CAGADA, ARREGLAR" rotation={-4} size="md" />
+        <Sticker color="red" text="ENLACE ROTO · 404" rotation={-4} size="md" />
         <Wordmark size="sm" color="black" />
       </div>
     </section>

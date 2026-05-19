@@ -14,7 +14,7 @@ const FILTERS: ("TODOS" | MagazineSection)[] = [
   "MENTALIDAD",
   "NEWS BRIEF",
   "MOTOR DE ADS",
-  "AUTOPSIA",
+  "DIAGNÓSTICO",
   "MANUAL DE CAMPO",
   "DROP",
   "HOT TAKE",
@@ -46,7 +46,7 @@ export default function MagazinePage() {
               MAGAZINE <span className="serif-italic font-normal normal-case">hq.leads.</span>
             </motion.h1>
             <p className="mt-4 max-w-xl text-ink/80">
-              Editorial mensual. 16 issues por mes, 8 secciones rotando. Pauta, mentalidad, métricas, autopsias y manuales. Sin chamuyos.
+              Editorial mensual. 16 issues por mes, 8 secciones rotando. Pauta, mentalidad, métricas, diagnósticos y manuales. Sin chamuyos.
             </p>
           </div>
           <div className="flex flex-col items-end gap-3">

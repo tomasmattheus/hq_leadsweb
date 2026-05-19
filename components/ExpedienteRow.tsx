@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-export type ExpedienteEstado = "ARCHIVADO" | "EN AUTOPSIA" | "RESUCITADO";
+export type ExpedienteEstado = "ARCHIVADO" | "EN DIAGNÓSTICO" | "OPERANDO";
 
 export type ExpedienteRowProps = {
   caso: string;
@@ -82,8 +82,8 @@ export function ExpedienteRow({
             className={cn(
               "inline-block px-2 py-1 text-[10px] font-bold tracking-[0.15em]",
               estado === "ARCHIVADO" && (dark ? "bg-cream/10 text-cream" : "bg-ink/10 text-ink"),
-              estado === "EN AUTOPSIA" && "bg-blood text-cream",
-              estado === "RESUCITADO" && "bg-acid text-ink"
+              estado === "EN DIAGNÓSTICO" && "bg-blood text-cream",
+              estado === "OPERANDO" && "bg-acid text-ink"
             )}
           >
             {estado}
@@ -104,8 +104,8 @@ export function ExpedienteHeader({ dark = false }: { dark?: boolean }) {
     >
       <div className="col-span-3">CASO</div>
       <div className="col-span-2">INDUSTRIA</div>
-      <div className="col-span-2">INVERSIÓN QUEMADA</div>
-      <div className="col-span-3">CAUSA</div>
+      <div className="col-span-2">INVERSIÓN</div>
+      <div className="col-span-3">DIAGNÓSTICO</div>
       <div className="col-span-2 text-right">ESTADO</div>
     </div>
   );
