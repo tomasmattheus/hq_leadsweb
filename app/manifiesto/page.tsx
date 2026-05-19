@@ -33,7 +33,7 @@ export default function ManifiestoPage() {
           />
         </div>
 
-        <h1 className="display text-[14vw] md:text-[8rem] lg:text-[10rem] leading-[0.88] text-ink tracking-tight max-w-5xl">
+        <h1 className="display leading-[0.92] text-ink tracking-tight max-w-5xl text-[clamp(2.75rem,8vw,6.5rem)]">
           Por qué{" "}
           <span className="serif-italic font-normal normal-case">existimos.</span>
         </h1>

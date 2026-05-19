@@ -5,7 +5,7 @@ export default function Loading() {
         <span>VOL.01 / SIDE A</span>
         <span>CARGANDO…</span>
       </div>
-      <div className="display text-[10vw] md:text-[6rem] leading-none text-ink/30 animate-pulse">
+      <div className="display leading-none text-ink/30 animate-pulse text-[clamp(2.5rem,7vw,4.5rem)]">
         cargando<span className="text-indigo">.</span>
       </div>
       <p className="mono text-xs text-mid-gray mt-8">UN SEGUNDO. SIN VUELTAS.</p>

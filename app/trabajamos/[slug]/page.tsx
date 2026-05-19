@@ -49,7 +49,7 @@ export default async function ServicePage({ params }: PageProps) {
 
         <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end">
           <div className="lg:col-span-8">
-            <h1 className="display text-[14vw] md:text-[8.5rem] lg:text-[10rem] leading-[0.88] text-ink tracking-tight">
+            <h1 className="display leading-[0.92] text-ink tracking-tight text-[clamp(2.75rem,8vw,6.5rem)]">
               {service.title}
               <br />
               <span className="serif-italic font-normal normal-case">

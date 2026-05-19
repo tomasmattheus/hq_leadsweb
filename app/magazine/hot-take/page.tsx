@@ -28,7 +28,7 @@ export default function HotTakePage() {
         <header className="flex flex-wrap items-end justify-between gap-6 border-b border-ink/15 pb-10">
           <div>
             <div className="mono text-[11px] text-ink/60">SECCIÓN 08 · HOT TAKE</div>
-            <h1 className="mt-3 display text-[12vw] leading-[0.9] text-ink md:text-[6.5rem]">
+            <h1 className="mt-3 display leading-[0.92] text-ink text-[clamp(2.5rem,7vw,5rem)]">
               HOT <span className="serif-italic font-normal normal-case">take.</span>
             </h1>
             <p className="mt-4 max-w-xl text-ink/80">
@@ -74,7 +74,7 @@ function HotTakeColumn({ issue, index }: { issue: Issue; index: number }) {
         <div className="mono text-[10px] text-ink/60">ISSUE {issue.number}</div>
 
         <blockquote className="mt-4">
-          <span className="block display text-[8vw] leading-[0.95] tracking-[-0.02em] text-ink md:text-[5rem]">
+          <span className="block display leading-[0.98] tracking-[-0.02em] text-ink text-[clamp(1.75rem,5vw,3.5rem)]">
             <span aria-hidden className="serif-italic font-normal text-blood">“</span>
             {before}
             <Highlighter color="yellow">{issue.italicWord}</Highlighter>

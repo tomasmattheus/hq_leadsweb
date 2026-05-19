@@ -33,7 +33,7 @@ export default function ManualDeCampoPage() {
         <header className="flex flex-wrap items-end justify-between gap-6 border-b border-ink/15 pb-10">
           <div>
             <div className="mono text-[11px] text-ink/60">SECCIÓN 06 · MANUAL DE CAMPO</div>
-            <h1 className="mt-3 display text-[12vw] leading-[0.9] text-ink md:text-[6.5rem]">
+            <h1 className="mt-3 display leading-[0.92] text-ink text-[clamp(2.5rem,7vw,5rem)]">
               MANUAL <span className="serif-italic font-normal normal-case">de campo.</span>
             </h1>
             <p className="mt-4 max-w-xl text-ink/80">{meta.description}</p>

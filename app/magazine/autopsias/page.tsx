@@ -89,7 +89,7 @@ export default function AutopsiasPage() {
         <header className="flex flex-wrap items-end justify-between gap-6 border-b border-cream/15 pb-10">
           <div>
             <div className="mono text-[11px] text-cream/60">SECCIÓN 04 · AUTOPSIAS</div>
-            <h1 className="mt-3 display text-[14vw] leading-[0.9] text-cream md:text-[8rem]">
+            <h1 className="mt-3 display leading-[0.92] text-cream text-[clamp(2.5rem,7vw,5.5rem)]">
               AUTOPSIAS.
             </h1>
             <p className="mt-4 max-w-xl text-cream/80">

@@ -178,7 +178,7 @@ function ExpedientesPreview() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:items-end">
           <div className="md:col-span-8">
             <div className="mono text-[11px] text-cream/60">SECCIÓN 04</div>
-            <h2 className="mt-3 display text-[12vw] leading-[0.9] text-cream md:text-[8rem]">
+            <h2 className="mt-3 display leading-[0.92] text-cream text-[clamp(2.5rem,7vw,5.5rem)]">
               EXPEDIENTES.
             </h2>
             <p className="mt-4 max-w-xl text-cream/80">
@@ -259,7 +259,7 @@ function DropsPreview() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <div className="mono text-[11px] text-cream/80">SECCIÓN 05</div>
-            <h2 className="mt-3 display text-[14vw] leading-[0.9] text-cream md:text-[8rem]">
+            <h2 className="mt-3 display leading-[0.92] text-cream text-[clamp(2.75rem,7.5vw,6rem)]">
               DROPS. <span className="serif-italic font-normal normal-case">todos gratis.</span>
             </h2>
           </div>

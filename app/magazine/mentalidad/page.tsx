@@ -23,7 +23,7 @@ export default function MentalidadPage() {
         <header className="grid grid-cols-12 gap-6 border-b border-ink/15 pb-10">
           <div className="col-span-12 md:col-span-8">
             <div className="mono text-[11px] text-ink/60">SECCIÓN 02 · MENTALIDAD</div>
-            <h1 className="mt-3 display text-[12vw] leading-[0.9] text-ink md:text-[7rem]">
+            <h1 className="mt-3 display leading-[0.92] text-ink text-[clamp(2.5rem,7vw,5rem)]">
               MENTALIDAD <span className="serif-italic font-normal normal-case">primero.</span>
             </h1>
             <p className="mt-4 max-w-xl text-ink/80">

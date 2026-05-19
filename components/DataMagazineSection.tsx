@@ -53,7 +53,7 @@ export function DataMagazineSection({
           transition={{ duration: 0.7 }}
           className="relative mt-4"
         >
-          <div className="display text-[18vw] leading-[0.85] text-ink md:text-[12rem] lg:text-[16rem]">
+          <div className="display leading-[0.88] text-ink text-[clamp(3.5rem,11vw,8.5rem)]">
             {heroValue}
           </div>
           <div className="absolute right-2 top-6 hidden md:block">

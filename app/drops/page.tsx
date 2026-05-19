@@ -31,7 +31,7 @@ export default function DropsPage() {
 
         <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
           <div className="lg:col-span-9">
-            <h1 className="font-display font-black text-cream uppercase tracking-tight leading-[0.85] text-[18vw] md:text-[14rem] lg:text-[16rem]">
+            <h1 className="font-display font-black text-cream uppercase tracking-tight leading-[0.88] text-[clamp(3.5rem,12vw,9rem)]">
               DROPS.
             </h1>
             <p className="serif-italic text-cream text-3xl md:text-5xl lg:text-6xl mt-4 leading-tight max-w-3xl">
