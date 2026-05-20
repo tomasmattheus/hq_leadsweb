@@ -32,7 +32,7 @@ export function Footer() {
           />
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-10 mb-16">
           {footerColumns.map((col) => (
             <div key={col.title}>
               <h3 className="mono text-[11px] tracking-wider text-mid-gray mb-4">

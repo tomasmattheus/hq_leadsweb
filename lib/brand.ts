@@ -34,31 +34,20 @@ export const mantras = [
 ] as const;
 
 export const taxonomiaSecciones = [
-  { slug: "magazine", label: "MAGAZINE", desc: "Editorial: news brief, hot takes, cultura." },
-  { slug: "motor-de-ads", label: "MOTOR DE ADS", desc: "Educativo paid media: ROAS, CPL, CTR, presupuestos." },
-  { slug: "manual-de-campo", label: "MANUAL DE CAMPO", desc: "Metodología paso a paso." },
-  { slug: "diagnosticos", label: "DIAGNÓSTICOS", desc: "Casos reales analizados con criterio técnico." },
-  { slug: "drops", label: "DROP", desc: "Lead magnets y herramientas gratis." },
+  { slug: "trabajamos", label: "TRABAJAMOS", desc: "Servicios: performance, IA, web, contenido." },
+  { slug: "blog", label: "BLOG", desc: "Editorial: diagnósticos, fórmulas, hot takes." },
+  { slug: "manifiesto", label: "MANIFIESTO", desc: "Por qué existe hq.leads." },
+  { slug: "agenda", label: "AGENDA", desc: "Auditoría gratis 30 min." },
 ] as const;
 
 export const navLinks = [
-  { href: "/magazine", label: "MAGAZINE" },
-  { href: "/magazine/motor-de-ads", label: "MOTOR DE ADS" },
-  { href: "/magazine/manual-de-campo", label: "MANUAL DE CAMPO" },
-  { href: "/magazine/diagnosticos", label: "DIAGNÓSTICOS" },
-  { href: "/drops", label: "DROP" },
+  { href: "/trabajamos", label: "TRABAJAMOS" },
+  { href: "/#casos", label: "CASOS" },
+  { href: "/blog", label: "BLOG" },
+  { href: "/manifiesto", label: "MANIFIESTO" },
 ] as const;
 
 export const footerColumns = [
-  {
-    title: "REVISTA",
-    links: [
-      { href: "/magazine", label: "Magazine" },
-      { href: "/magazine/motor-de-ads", label: "Motor de Ads" },
-      { href: "/magazine/manual-de-campo", label: "Manual de Campo" },
-      { href: "/magazine/diagnosticos", label: "Diagnósticos" },
-    ],
-  },
   {
     title: "AGENCIA",
     links: [
@@ -68,21 +57,21 @@ export const footerColumns = [
     ],
   },
   {
-    title: "DROPS",
+    title: "EDITORIAL",
     links: [
-      { href: "/drops", label: "Todos los drops" },
-      { href: "/drops#calculadora-roas", label: "Calculadora ROAS" },
-      { href: "/drops#checklist-auditoria", label: "Checklist Meta Ads" },
-      { href: "/drops#buyer-persona", label: "Buyer Persona" },
+      { href: "/blog", label: "Blog" },
+      { href: "/blog?filter=DIAGNÓSTICO", label: "Diagnósticos" },
+      { href: "/blog?filter=MOTOR DE ADS", label: "Motor de Ads" },
+      { href: "/blog?filter=MANUAL DE CAMPO", label: "Manual de Campo" },
     ],
   },
   {
     title: "CONTACTO",
     links: [
       { href: "mailto:tomasamattheus@gmail.com", label: "tomasamattheus@gmail.com" },
+      { href: "https://wa.me/5493413103383", label: "WhatsApp" },
       { href: "https://instagram.com/hq.leads", label: "@hq.leads" },
       { href: "https://linkedin.com/company/hq-leads", label: "LinkedIn" },
-      { href: "https://wa.me/5493413103383", label: "WhatsApp" },
     ],
   },
 ] as const;
