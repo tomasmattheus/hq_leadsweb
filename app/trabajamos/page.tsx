@@ -17,22 +17,22 @@ export const metadata: Metadata = {
     "Ingeniería comercial para PyMES con producto. Performance, automatización IA, web y contenido — sin chamuyo.",
 };
 
-const PRICING_PER_SERVICE: Record<string, { from: string; detail: string }> = {
+const MODEL_PER_SERVICE: Record<string, { model: string; detail: string }> = {
   performance: {
-    from: "$300K / MES",
-    detail: "Por plataforma · Combo Meta+Google $500k · Bonus 5% sobre ventas atribuibles",
+    model: "FEE MENSUAL · O FEE + %",
+    detail: "Cerrado mensual cuando ya hay tracking limpio · Fee + porcentaje sobre ventas atribuibles si arrancamos de cero · Nunca % sobre tu spend",
   },
   "automatizacion-ia": {
-    from: "$200 USD / MES",
-    detail: "Por agente conversacional · Setup + mantenimiento · Make/n8n a pedido",
+    model: "SETUP + FEE MENSUAL",
+    detail: "Setup único (configuración + integración) · Mensual por agente conversacional · Make/n8n flows a pedido",
   },
   web: {
-    from: "$350K SETUP",
-    detail: "Landing: $350k + $100k/mes mantenimiento · E-commerce desde $800k",
+    model: "SETUP + MANTENIMIENTO",
+    detail: "Setup único por proyecto (landing o e-commerce) · Mensual opcional de mantenimiento + updates · Sin contrato mínimo",
   },
   contenido: {
-    from: "$200K / MES",
-    detail: "Starter $200k · Pro $350k · Full $500k · Posts + reels + reporte",
+    model: "3 PAQUETES MENSUALES",
+    detail: "Starter, Pro o Full · Mensual cerrado, sin sorpresas · Posts + reels + reporte mensual incluido",
   },
 };
 
@@ -100,7 +100,7 @@ export default function TrabajamosPage() {
 
         <div className="space-y-16 md:space-y-24">
           {services.map((service, i) => {
-            const pricing = PRICING_PER_SERVICE[service.slug];
+            const model = MODEL_PER_SERVICE[service.slug];
             return (
               <article
                 key={service.slug}
@@ -134,17 +134,18 @@ export default function TrabajamosPage() {
                       {service.description}
                     </p>
 
-                    {pricing && (
+                    {model && (
                       <div className="mt-8 border border-ink/20 bg-off-white p-5">
-                        <div className="flex items-baseline justify-between gap-4">
-                          <span className="mono text-[10px] tracking-widest text-ink/60">DESDE</span>
-                          <span className="display text-2xl text-ink md:text-3xl">
-                            {pricing.from}
-                          </span>
+                        <div className="mono text-[10px] tracking-widest text-ink/60">MODELO</div>
+                        <div className="mt-2 mono text-[11px] tracking-widest text-ink">
+                          {model.model}
                         </div>
-                        <p className="mt-3 mono text-[10px] tracking-wide text-ink/65 leading-relaxed">
-                          {pricing.detail}
+                        <p className="mt-3 text-sm text-ink/80 leading-relaxed md:text-base">
+                          {model.detail}
                         </p>
+                        <div className="mt-4 mono text-[10px] tracking-widest text-ink/55">
+                          PRICING POR CONSULTA · PROPUESTA EN 48 HS
+                        </div>
                       </div>
                     )}
 

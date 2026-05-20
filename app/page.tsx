@@ -4,7 +4,6 @@ import { Hero } from "@/components/Hero";
 import { ClienteProfile } from "@/components/ClienteProfile";
 import { ProcessTimeline } from "@/components/ProcessTimeline";
 import { CaseStat } from "@/components/CaseStat";
-import { PricingBlock } from "@/components/PricingBlock";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Newsletter } from "@/components/Newsletter";
@@ -31,7 +30,7 @@ export default function HomePage() {
       <SistemaSection />
       <ServiciosSection />
       <CasosSection />
-      <PricingSection />
+      <ModeloSection />
       <FAQSection />
 
       <FinalCTA
@@ -199,28 +198,28 @@ function ServiciosSection() {
       label: "PERFORMANCE",
       title: "Meta + Google Ads",
       copy: "Pauta como sistema. Mapeamos antes de gastar, medimos lo que importa, escalamos lo que prueba.",
-      from: "DESDE $300K/MES",
+      meta: "FEE MENSUAL · O FEE + %",
     },
     {
       n: "02",
       label: "AUTOMATIZACIÓN IA",
       title: "Bots + CRM + Make",
       copy: "Pipelines que venden 24/7. WhatsApp, Instagram, asistentes propios. Dejás de operar a pulmón.",
-      from: "DESDE $200 USD/MES",
+      meta: "SETUP + FEE MENSUAL",
     },
     {
       n: "03",
       label: "WEB",
       title: "Landing + e-commerce",
       copy: "Páginas pensadas como motor de conversión, no tarjeta personal. Next.js + Supabase + Vercel.",
-      from: "DESDE $350K SETUP",
+      meta: "SETUP + MANTENIMIENTO",
     },
     {
       n: "04",
       label: "CONTENIDO",
       title: "CM + ads creativos",
       copy: "Bajamos la voz de marca a feed. Posts, reels, ads y emails con IA. Sin chamuyo. Con criterio editorial.",
-      from: "DESDE $200K/MES",
+      meta: "STARTER · PRO · FULL",
     },
   ];
 
@@ -260,7 +259,7 @@ function ServiciosSection() {
               </h3>
               <p className="text-base text-ink/80 md:text-lg">{s.copy}</p>
               <footer className="mt-auto flex items-center justify-between border-t border-ink/15 pt-4">
-                <span className="mono text-[10px] tracking-widest text-ink">{s.from}</span>
+                <span className="mono text-[10px] tracking-widest text-ink">{s.meta}</span>
                 <Link
                   href="/trabajamos"
                   className="mono text-[10px] tracking-widest text-ink inline-flex items-center gap-1.5 transition hover:text-indigo"
@@ -364,36 +363,22 @@ function CasosSection() {
   );
 }
 
-function PricingSection() {
-  const services: import("@/components/PricingBlock").PricingService[] = [
+function ModeloSection() {
+  const items = [
     {
-      service: "Performance",
-      tag: "01 · META + GOOGLE ADS",
-      starting: "$300K / MES",
-      description:
-        "Por plataforma. Combo Meta + Google desde $500k/mes. Fee fijo + opcional 5% sobre ventas atribuibles cuando supera el umbral acordado.",
-      highlight: true,
+      label: "MODELO POR CASO",
+      title: "Fee fijo o fee + %.",
+      body: "Según el caso. Algunos clientes prefieren fee mensual cerrado, otros suman un porcentaje sobre ventas atribuibles. Definimos cuál te conviene en la auditoría.",
     },
     {
-      service: "Automatización IA",
-      tag: "02 · BOTS + CRM",
-      starting: "$200 USD / MES",
-      description:
-        "Por agente conversacional (WhatsApp/Insta) con white-label propio. Incluye setup, configuración y mantenimiento. Pipelines con Make/n8n a pedido.",
+      label: "SIN LETRA CHICA",
+      title: "Lo que firmamos, pagás.",
+      body: "Cerramos el modelo por escrito antes de empezar. Sin extras ocultos, sin updates sorpresivos, sin clausulitas raras.",
     },
     {
-      service: "Web",
-      tag: "03 · LANDING + E-COMMERCE",
-      starting: "$350K SETUP",
-      description:
-        "Landing: $350k setup + $100k/mes mantenimiento. E-commerce desde $800k setup + $150k/mes. Stack Next.js + Supabase + Vercel.",
-    },
-    {
-      service: "Contenido",
-      tag: "04 · CM AI-DRIVEN",
-      starting: "$200K / MES",
-      description:
-        "Starter $200k (12 posts) · Pro $350k (16 posts + 4 reels + reporte) · Full $500k (20 posts + 8 reels + DM management).",
+      label: "REVISIÓN TRIMESTRAL",
+      title: "Si no funciona, cambia.",
+      body: "Cada 3 meses revisamos resultados y modelo. Si el setup actual no rinde lo esperado, ajustamos. No te casás con un contrato rígido.",
     },
   ];
 
@@ -403,24 +388,45 @@ function PricingSection() {
         <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-12 md:items-end">
           <div className="md:col-span-8">
             <SectionHeader
-              tag="SECCIÓN 06 · PRECIOS"
-              headline="TRANSPARENCIA"
-              italicWord="total"
-              meta="ARS · MAY 2026"
+              tag="SECCIÓN 06 · MODELO"
+              headline="CÓMO"
+              italicWord="cobramos"
+              meta="TRANSPARENTE · FLEXIBLE"
             />
             <p className="mt-6 max-w-2xl text-base text-ink/80 md:text-lg">
-              Fee mensual fijo. Sin porcentaje sobre tu inversión publicitaria. Sabés exactamente cuánto pagás y por qué.
+              Cada negocio es distinto. No tenemos pricing público: el número lo armamos en función de tu cuenta, tu inversión y los objetivos. Pero el modelo es claro desde el primer minuto.
             </p>
           </div>
           <div className="md:col-span-4 md:text-right">
-            <Sticker text="SIN LETRA CHICA" color="yellow" rotation={-5} size="md" />
+            <Sticker text="PROPUESTA EN 48 HS" color="yellow" rotation={-5} size="md" />
           </div>
         </div>
 
-        <PricingBlock
-          services={services}
-          footnote="LOS PRECIOS SE AJUSTAN MENSUALMENTE POR INFLACIÓN ARS · USD REFERENCIA: $1.400"
-        />
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
+          {items.map((item, i) => (
+            <article
+              key={i}
+              className="relative flex h-full flex-col border border-ink/15 bg-cream p-6 md:p-8"
+            >
+              <div className="mono text-[10px] tracking-widest text-indigo">{item.label}</div>
+              <h3 className="mt-4 display cmyk-shift text-xl normal-case leading-tight text-ink md:text-2xl">
+                {item.title}
+              </h3>
+              <p className="mt-4 text-base text-ink/80 md:text-lg leading-relaxed">{item.body}</p>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-ink/15 pt-6 mono text-[11px] tracking-widest text-ink/65">
+          <span>NO HAY PRECIO SIN CONTEXTO.</span>
+          <Link
+            href="/agenda"
+            className="inline-flex items-center gap-2 bg-ink text-cream px-5 py-3 mono text-[10px] tracking-widest transition hover:bg-indigo"
+          >
+            PEDÍ PROPUESTA PERSONALIZADA
+            <ArrowRight className="w-3 h-3" strokeWidth={2} />
+          </Link>
+        </div>
       </div>
     </section>
   );
@@ -442,7 +448,7 @@ function FAQSection() {
     },
     {
       q: "¿Cómo es el modelo de cobro?",
-      a: "Fee mensual fijo en pesos. No cobramos porcentaje de tu inversión publicitaria. Opcional: bonus de 5% sobre ventas atribuibles cuando supera un umbral. Nuestro incentivo está alineado con el tuyo.",
+      a: "Trabajamos con dos modelos según el caso: fee mensual cerrado, o fee + porcentaje sobre ventas atribuibles. En la auditoría gratis definimos cuál es el mejor para tu situación y lo dejamos por escrito antes de arrancar. No cobramos % sobre tu spend publicitario en ningún caso.",
     },
     {
       q: "¿Trabajan con cualquier rubro?",
