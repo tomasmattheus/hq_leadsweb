@@ -6,6 +6,7 @@ import { Sticker } from "@/components/Sticker";
 import { MarkerAnnotation } from "@/components/MarkerAnnotation";
 import { ManifestoBlock } from "@/components/ManifestoBlock";
 import { Newsletter } from "@/components/Newsletter";
+import { Barcode } from "@/components/Barcode";
 
 export const metadata: Metadata = {
   title: "Manifiesto",
@@ -19,21 +20,28 @@ export default function ManifiestoPage() {
       <section className="relative max-w-7xl mx-auto px-6 md:px-12 pt-24 md:pt-32 pb-12 md:pb-16 crop-marks">
         <CropMarks color="light-gray" margin={24} />
 
-        <div className="flex items-center justify-between mono text-[11px] tracking-widest text-mid-gray uppercase mb-10 md:mb-14">
-          <span>VOL.01 / MANIFIESTO</span>
-          <span>EDITADO EN ROSARIO · 2026</span>
+        <div className="border-b-2 border-ink pb-3 mb-2 flex flex-wrap items-center justify-between gap-3 mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-ink">
+          <span className="font-bold">HQ.LEADS · VOL.01 / MANIFIESTO</span>
+          <span className="hidden md:inline">EDITADO EN ROSARIO · MAYO 2026</span>
+          <span className="font-bold">CREDO / 003</span>
+        </div>
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-10 md:mb-14 mono text-[9px] tracking-widest text-ink/65">
+          <span>INGENIERÍA COMERCIAL · NO MARKETING</span>
+          <span className="hidden sm:inline">LECTURA ESTIMADA · 03:00 MIN</span>
+          <span>ISSN 0001-HQL</span>
         </div>
 
-        <div className="absolute top-32 right-6 md:right-12 hidden md:block">
+        <div className="absolute top-36 right-6 md:right-12 hidden md:flex flex-col items-end gap-3">
           <Sticker
             color="red"
-            text="DOSSIER TÉCNICO · LECTURA INTERNA"
+            text="DOSSIER TÉCNICO"
             rotation={-7}
             size="sm"
           />
+          <Sticker color="yellow" text="POR LA POSTA" rotation={4} size="sm" />
         </div>
 
-        <h1 className="display leading-[0.92] text-ink tracking-tight max-w-5xl text-[clamp(2.75rem,8vw,6.5rem)]">
+        <h1 className="display cmyk-shift leading-[0.92] text-ink tracking-tight max-w-5xl text-[clamp(2.75rem,8vw,6.5rem)]">
           Por qué{" "}
           <span className="serif-italic font-normal normal-case">existimos.</span>
         </h1>
@@ -141,6 +149,10 @@ export default function ManifiestoPage() {
             ESCRIBINOS
             <ArrowRight className="w-4 h-4" strokeWidth={1.75} />
           </Link>
+
+          <div className="mt-14 flex justify-center">
+            <Barcode code="HQL2026CREDO" label="VOL.01 / MANIFIESTO" />
+          </div>
         </div>
       </article>
 

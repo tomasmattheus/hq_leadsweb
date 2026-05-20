@@ -5,11 +5,13 @@ import { motion } from "framer-motion";
 import { CropMarks } from "@/components/CropMarks";
 import { Sticker } from "@/components/Sticker";
 import { MarkerAnnotation } from "@/components/MarkerAnnotation";
+import { Barcode } from "@/components/Barcode";
 
 export type HeroProps = {
   headline: string;
   italicWord: string;
   subtitle: string;
+  subtitleHighlight?: string;
   ctaPrimary: { label: string; href: string };
   ctaSecondary: { label: string; href: string };
   issueLabel?: string;
@@ -20,12 +22,17 @@ export function Hero({
   headline,
   italicWord,
   subtitle,
+  subtitleHighlight,
   ctaPrimary,
   ctaSecondary,
   issueLabel = "ISSUE 001",
   volumeLabel = "VOL.01 / SIDE A",
 }: HeroProps) {
   const [before, after] = headline.split(italicWord);
+  const subtitleParts =
+    subtitleHighlight && subtitle.includes(subtitleHighlight)
+      ? subtitle.split(subtitleHighlight)
+      : null;
 
   return (
     <section
@@ -34,11 +41,18 @@ export function Hero({
     >
       <CropMarks color="light-gray" margin={24} />
 
-      {/* Editorial header */}
-      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] items-center justify-between px-6 pt-10 mono text-[11px] text-ink/80 md:px-12 md:text-xs">
-        <span>{volumeLabel}</span>
-        <span className="hidden md:inline">DISEÑADO EN ROSARIO. PARA TODOS LADOS.</span>
-        <span>{issueLabel}</span>
+      {/* Editorial cover header */}
+      <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 pt-8 md:px-12 md:pt-10">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b-2 border-ink pb-3 mono text-[10px] tracking-[0.2em] text-ink md:text-[11px]">
+          <span className="font-bold">HQ.LEADS · {volumeLabel}</span>
+          <span className="hidden md:inline">MAYO · 2026 · ROSARIO · ARG · $0.00 ARS</span>
+          <span className="font-bold">{issueLabel}</span>
+        </div>
+        <div className="flex flex-wrap items-center justify-between gap-2 pt-2 mono text-[9px] tracking-widest text-ink/65">
+          <span>EDITORIAL INDEPENDIENTE · PAID MEDIA · IA</span>
+          <span className="hidden sm:inline">DISTRIBUIDO POR INTERNET · SIN PAYWALL</span>
+          <span>ISSN 0001-HQL</span>
+        </div>
       </div>
 
       <div className="relative z-10 mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-10 px-6 pb-12 pt-10 md:grid-cols-12 md:gap-8 md:px-12 md:pb-16 md:pt-14">
@@ -47,7 +61,7 @@ export function Hero({
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="display leading-[0.92] text-[clamp(2.75rem,7.5vw,6.25rem)]"
+            className="display cmyk-shift leading-[0.92] text-[clamp(2.75rem,7.5vw,6.25rem)]"
           >
             {before}
             <span className="serif-italic font-normal normal-case">{italicWord}</span>
@@ -60,7 +74,17 @@ export function Hero({
             transition={{ delay: 0.2, duration: 0.6 }}
             className="mt-6 max-w-xl md:mt-8"
           >
-            <p className="text-base leading-relaxed text-ink/80 md:text-lg">{subtitle}</p>
+            <p className="text-base leading-relaxed text-ink/85 md:text-lg">
+              {subtitleParts ? (
+                <>
+                  {subtitleParts[0]}
+                  <span className="highlighter-strong font-semibold text-ink">{subtitleHighlight}</span>
+                  {subtitleParts[1]}
+                </>
+              ) : (
+                subtitle
+              )}
+            </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3 md:mt-8">
               <Link href={ctaPrimary.href} className="pill pill-indigo px-6 py-3 text-xs">
@@ -103,14 +127,20 @@ export function Hero({
             </motion.div>
           </motion.div>
 
-          <div className="absolute -top-2 right-2 md:right-6">
-            <Sticker text="VOL.01 / DROP 01" color="yellow" rotation={-6} size="sm" />
+          <div className="absolute -top-3 right-1 md:right-4">
+            <Sticker text="EXCLUSIVO · MAY 2026" color="yellow" rotation={-7} size="sm" />
           </div>
-          <div className="absolute bottom-6 -left-2 md:bottom-10 md:-left-6">
+          <div className="absolute top-16 -left-3 hidden md:block">
+            <Sticker text="ISSUE 001" color="black" rotation={-12} size="sm" />
+          </div>
+          <div className="absolute bottom-24 -left-2 md:bottom-32 md:-left-6">
             <Sticker text="SIN CHAMUYOS" color="red" rotation={5} size="md" />
           </div>
           <div className="absolute bottom-2 right-4 hidden md:block">
             <MarkerAnnotation text="AJEDREZ, NO RULETA" arrow="up" rotation={-3} />
+          </div>
+          <div className="absolute -bottom-2 left-0 md:left-2">
+            <Barcode code="HQL2026001" label="VOL.01" />
           </div>
         </div>
       </div>

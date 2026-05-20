@@ -41,7 +41,7 @@ export default function MagazinePage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-3 display leading-[0.92] text-ink text-[clamp(2.5rem,7vw,5.5rem)]"
+              className="mt-3 display cmyk-shift leading-[0.92] text-ink text-[clamp(2.5rem,7vw,5.5rem)]"
             >
               MAGAZINE <span className="serif-italic font-normal normal-case">hq.leads.</span>
             </motion.h1>

@@ -24,6 +24,7 @@ export default function HomePage() {
         headline="SISTEMAS QUE VENDEN mientras dormís."
         italicWord="mientras dormís"
         subtitle="Ingeniería comercial con IA para PyMES con producto. Diseñamos, instalamos y operamos máquinas de adquisición que siguen funcionando cuando vos no estás."
+        subtitleHighlight="Ingeniería comercial con IA"
         ctaPrimary={{ label: "Pedí un diagnóstico", href: "/agenda" }}
         ctaSecondary={{ label: "Ver el archivo", href: "/magazine" }}
         issueLabel="ISSUE 001"

@@ -28,7 +28,7 @@ export default function HotTakePage() {
         <header className="flex flex-wrap items-end justify-between gap-6 border-b border-ink/15 pb-10">
           <div>
             <div className="mono text-[11px] text-ink/60">SECCIÓN 08 · HOT TAKE</div>
-            <h1 className="mt-3 display leading-[0.92] text-ink text-[clamp(2.5rem,7vw,5rem)]">
+            <h1 className="mt-3 display cmyk-shift leading-[0.92] text-ink text-[clamp(2.5rem,7vw,5rem)]">
               HOT <span className="serif-italic font-normal normal-case">take.</span>
             </h1>
             <p className="mt-4 max-w-xl text-ink/80">

@@ -12,7 +12,7 @@ export default function NotFound() {
         <span>ERROR 404 / PÁGINA NO ENCONTRADA</span>
       </div>
 
-      <h1 className="display leading-[0.88] text-ink text-[clamp(3.5rem,12vw,9rem)]">
+      <h1 className="display cmyk-shift-strong leading-[0.88] text-ink text-[clamp(3.5rem,12vw,9rem)]">
         404.<br />
         <span className="serif-italic normal-case font-normal">no está.</span>
       </h1>

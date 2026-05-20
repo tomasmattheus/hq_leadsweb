@@ -4,6 +4,7 @@ import { Sticker } from "@/components/Sticker";
 import { MarkerAnnotation } from "@/components/MarkerAnnotation";
 import { AuditoryForm } from "@/components/AuditoryForm";
 import { Newsletter } from "@/components/Newsletter";
+import { Barcode } from "@/components/Barcode";
 
 export const metadata: Metadata = {
   title: "Auditoría gratis",
@@ -53,17 +54,24 @@ export default function AgendaPage() {
       <section className="relative max-w-7xl mx-auto px-6 md:px-12 pt-24 md:pt-32 pb-16 md:pb-20 crop-marks">
         <CropMarks color="light-gray" margin={24} />
 
-        <div className="flex items-center justify-between mono text-[11px] tracking-widest text-mid-gray uppercase mb-10 md:mb-14">
-          <span>VOL.01 / AGENDA</span>
-          <span>30 MIN · POR ZOOM O MEET</span>
+        <div className="border-b-2 border-ink pb-3 mb-2 flex flex-wrap items-center justify-between gap-3 mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-ink">
+          <span className="font-bold">HQ.LEADS · VOL.01 / AGENDA</span>
+          <span className="hidden md:inline">MAYO · 2026 · 30 MIN · ZOOM/MEET</span>
+          <span className="font-bold">CITA / 001</span>
+        </div>
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-10 md:mb-14 mono text-[9px] tracking-widest text-ink/65">
+          <span>SIN PITCH · SIN TARJETA · SIN BULLSHIT</span>
+          <span className="hidden sm:inline">DURACIÓN ESTIMADA · 00:30:00</span>
+          <span>ISSN 0001-HQL</span>
         </div>
 
-        <div className="absolute top-32 right-6 md:right-12">
-          <Sticker color="red" text="URGENTE" rotation={-8} size="md" />
+        <div className="absolute top-36 right-6 md:right-12 flex flex-col items-end gap-3">
+          <Sticker color="red" text="DIAGNÓSTICO GRATIS" rotation={-8} size="md" />
+          <Sticker color="yellow" text="ABIERTO · MAY 2026" rotation={4} size="sm" />
         </div>
 
         <div className="relative">
-          <h1 className="display leading-[0.92] text-ink tracking-tight max-w-5xl text-[clamp(2.75rem,8vw,6.5rem)]">
+          <h1 className="display cmyk-shift leading-[0.92] text-ink tracking-tight max-w-5xl text-[clamp(2.75rem,8vw,6.5rem)]">
             Auditoría{" "}
             <span className="serif-italic font-normal normal-case">gratis.</span>
             <br />
@@ -77,6 +85,10 @@ export default function AgendaPage() {
 
           <div className="absolute -bottom-8 right-12 hidden md:block">
             <MarkerAnnotation text="EN SERIO" arrow="up" rotation={-5} />
+          </div>
+
+          <div className="mt-12">
+            <Barcode code="HQL2026CITA" label="VOL.01 / AGENDA" />
           </div>
         </div>
       </section>
